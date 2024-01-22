@@ -1,0 +1,608 @@
+{
+	"info": {
+		"_postman_id": "ae24fb42-bde3-415f-a878-80a42a37a8c8",
+		"name": "Kredit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5793271"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Transaction",
+					"item": [
+						{
+							"name": "Settlement Transaction",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOm51bGwsImlkIjoxLCJpc3N1ZV9kYXRlIjoiMjAyNC0wMS0yMVQyMDoyMDozOS4zNDEwMDkyKzA3OjAwIn0.bcbA8UerPPppQI6thixaK9dft6EmCBFidZwT7WNn8AQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"txn_id\": \"018d2d97-5c6d-7441-b91c-2a235a64cb30\",\r\n    \"installment_period\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Host}}/v1/transaction/settlement",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"v1",
+										"transaction",
+										"settlement"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Transaction",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Host}}/v1/transaction/:txn_id",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"v1",
+										"transaction",
+										":txn_id"
+									],
+									"variable": [
+										{
+											"key": "txn_id",
+											"value": "018d2d23-3a54-7cec-a410-c6cd13d57a25"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Transaction",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"phone\": \"089538768687\",\r\n    \"otr\": 500000,\r\n    \"admin_fee\": 50000,\r\n    \"installment_period\": 6,\r\n    \"interest\": 6,\r\n    \"asset_name\": \"jacket\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{Host}}/v1/transaction/:txn_id",
+											"host": [
+												"{{Host}}"
+											],
+											"path": [
+												"v1",
+												"transaction",
+												":txn_id"
+											],
+											"variable": [
+												{
+													"key": "txn_id",
+													"value": "018d2b2a-d74d-7317-b2a7-ce7f3785a6f2"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Get Transaction",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{Host}}/v1/transaction/:txn_id",
+											"host": [
+												"{{Host}}"
+											],
+											"path": [
+												"v1",
+												"transaction",
+												":txn_id"
+											],
+											"variable": [
+												{
+													"key": "txn_id",
+													"value": "018d2d23-3a54-7cec-a410-c6cd13d57a25"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Installment",
+					"item": [
+						{
+							"name": "Payment",
+							"item": [
+								{
+									"name": "Payment",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"otr\": 500000\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{Host}}/v1/installment/payment",
+											"host": [
+												"{{Host}}"
+											],
+											"path": [
+												"v1",
+												"installment",
+												"payment"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Payment",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"otr\": 500000\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{Host}}/v1/installment/payment",
+													"host": [
+														"{{Host}}"
+													],
+													"path": [
+														"v1",
+														"installment",
+														"payment"
+													]
+												}
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "Calculation Transaction",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{Host}}/v1/installment/payment/calculation/:txn_id",
+											"host": [
+												"{{Host}}"
+											],
+											"path": [
+												"v1",
+												"installment",
+												"payment",
+												"calculation",
+												":txn_id"
+											],
+											"variable": [
+												{
+													"key": "txn_id",
+													"value": "018d2d97-5c6d-7441-b91c-2a235a64cb30"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Calculation Transaction",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{Host}}/v1/installment/payment/calculation/:txn_id",
+													"host": [
+														"{{Host}}"
+													],
+													"path": [
+														"v1",
+														"installment",
+														"payment",
+														"calculation",
+														":txn_id"
+													],
+													"variable": [
+														{
+															"key": "txn_id",
+															"value": "018d2d97-5c6d-7441-b91c-2a235a64cb30"
+														}
+													]
+												}
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Calculation",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"otr\": 500000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Host}}/v1/installment/calculation",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"v1",
+										"installment",
+										"calculation"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Calculation",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"otr\": 500000\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{Host}}/v1/installment/calculation",
+											"host": [
+												"{{Host}}"
+											],
+											"path": [
+												"v1",
+												"installment",
+												"calculation"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Partner",
+					"item": [
+						{
+							"name": "Transaction",
+							"item": [
+								{
+									"name": "Init Transaction",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"api_key\": \"42255ae3bb6866a8d77f105caa25204201af42cb\",\r\n    \"order_id\": \"Test\",\r\n    \"phone\": \"089538768687\",\r\n    \"otr\": 10000,\r\n    \"admin_fee\": 500,\r\n    \"asset_name\": \"jacket\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{Host}}/v1/partner/transaction/init",
+											"host": [
+												"{{Host}}"
+											],
+											"path": [
+												"v1",
+												"partner",
+												"transaction",
+												"init"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Init Transaction",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"api_key\": \"42255ae3bb6866a8d77f105caa25204201af42cb\",\r\n    \"order_id\": \"Test\",\r\n    \"phone\": \"089538768687\",\r\n    \"otr\": 10000,\r\n    \"admin_fee\": 500,\r\n    \"asset_name\": \"jacket\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{Host}}/v1/partner/transaction/init",
+													"host": [
+														"{{Host}}"
+													],
+													"path": [
+														"v1",
+														"partner",
+														"transaction",
+														"init"
+													]
+												}
+											},
+											"_postman_previewlanguage": null,
+											"header": null,
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Customer",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"Test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Host}}/v1/customer/login",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"v1",
+										"customer",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"Test\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{Host}}/v1/customer/login",
+											"host": [
+												"{{Host}}"
+											],
+											"path": [
+												"v1",
+												"customer",
+												"login"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Check Limit",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Host}}/v1/customer/limit",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"v1",
+										"customer",
+										"limit"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Check Limit",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{Host}}/v1/customer/limit",
+											"host": [
+												"{{Host}}"
+											],
+											"path": [
+												"v1",
+												"customer",
+												"limit"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Check Health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/v1/health",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"v1",
+								"health"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Check Health",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Host}}/v1/health",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"v1",
+										"health"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Host",
+			"value": "localhost:5005",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOm51bGwsImlkIjoxLCJpc3N1ZV9kYXRlIjoiMjAyNC0wMS0yMVQyMDoyMDozOS4zNDEwMDkyKzA3OjAwIn0.bcbA8UerPPppQI6thixaK9dft6EmCBFidZwT7WNn8AQ",
+			"type": "string"
+		}
+	]
+}

@@ -13,6 +13,8 @@ services:
       - "4317:4317"
     environment:
       - LOG_LEVEL=debug
+    networks:
+      - kredit-net
 
   zoo_keeper:
     image: confluentinc/cp-zookeeper:7.3.2
@@ -24,6 +26,8 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_SERVER_ID: 1
       ZOOKEEPER_SERVERS: zoo_keeper:2888:3888
+    networks:
+      - kredit-net
 
   kafka:
     image: confluentinc/cp-kafka:7.3.2
@@ -47,6 +51,8 @@ services:
       KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.0.0.1}
       KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
       KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
+    networks:
+      - kredit-net
     depends_on:
       - zoo_keeper
 
@@ -59,6 +65,8 @@ services:
       DYNAMIC_CONFIG_ENABLED: "true"
     volumes:
       - /tmp/config.yml:/config.yml
+    networks:
+      - kredit-net
     depends_on:
       - kafka
 
