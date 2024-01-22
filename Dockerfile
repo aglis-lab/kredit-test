@@ -18,7 +18,6 @@ FROM ubuntu:22.04 AS build-release-stage
 WORKDIR /
 
 COPY --from=build-stage /kredit /kredit
-COPY .env .env
 
 EXPOSE 5005
 
